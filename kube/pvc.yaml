@@ -1,0 +1,25 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nextflow-pvc
+spec:
+  storageClassName: manual
+  capacity:
+    storage: "1Gi"
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/nextflow"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nextflow-pvc-claim
+spec:
+  volumeName: nextflow-pvc
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: "128Mi"

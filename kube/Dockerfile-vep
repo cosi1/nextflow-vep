@@ -1,0 +1,8 @@
+FROM docker.io/ensemblorg/ensembl-vep:latest
+
+USER 0
+
+RUN apt-get update && apt-get install -y git
+RUN /opt/vep/src/ensembl-vep/INSTALL.pl --AUTO=c --SPECIES=homo_sapiens --ASSEMBLY=GRCh37
+
+USER 1000

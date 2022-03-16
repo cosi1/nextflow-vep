@@ -1,0 +1,3 @@
+PVC_NAME=nextflow-pvc-claim
+VEP_IMAGE_NAME=vep:latest
+
